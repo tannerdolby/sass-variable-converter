@@ -102,8 +102,8 @@ compiles to:
 }
 ```
 
-## Contributing
-I want this to be a helpful tool for anyone needing to convert Sass variables to CSS custom properties, so feel free to suggest any features, improvements, changes in the [issue tracker](https://github.com/tannerdolby/sass-variable-converter/issues)
+## Contributing 
+I want this to be a helpful tool for the Sass community and anyone needing to convert Sass variables to CSS custom properties, so feel free to suggest any problems, features, or improvements in the [issue tracker](https://github.com/tannerdolby/sass-variable-converter/issues). 
 
 See [CONTRIBUTING.md](https://github.com/tannerdolby/sass-variable-converter/blob/master/CONTRIBUTING.md) for more on contributing to this project.
 
