@@ -2,12 +2,12 @@
 A utility for converting Sass [variables](https://sass-lang.com/documentation/variables) to CSS [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ## Usage
-Convert a single Sass variable to a CSS custom property, or provide comma separated Sass variables as input to `var.create()` to generate multiple custom properties at once.
+Convert a single Sass variable to a CSS custom property, or provide comma separated Sass variables as input to `vars.create()` to generate multiple custom properties at once.
 
-First define variables so we can pass the module namespace to where the mixin will be receiving a Sass variable to convert. This way, we always have access to `meta.module-variables(module)` when using the `var.create()` mixin and `var.use()` function.
+First define variables so we can pass the module namespace to where the mixin will be receiving a Sass variable to convert. This way, we always have access to `meta.module-variables(module)` when using the `vars.create()` mixin and `vars.use()` function.
 
 ```scss
-// var/_variables.scss
+// vars/_variables.scss
 
 $width: 50px;
 $height: 25px;
@@ -17,7 +17,7 @@ $color: #f06;
 then load the stylesheet:
 
 ```scss
-// var/_index.scss
+// vars/_index.scss
 
 @forward "vars";
 ```
@@ -27,34 +27,34 @@ now simply include the mixins/variables with `@use "var"` and utilize the `creat
 ```scss
 // demo.scss
 
-@use "var";
+@use "vars";
 
-$width: var.$color;
-$height: var.$length;
-$color: var.$color; 
+$width: vars.$color;
+$height: vars.$length;
+$color: vars.$color; 
 
 // Converting a single Sass variable at a time
 .demo-one {
-    @include var.create($width);
-    @include var.create($height);
-    @include var.create($color);
+    @include vars.create($width);
+    @include vars.create($height);
+    @include vars.create($color);
 
-    width: var.use($width);
-    height: var.use($height);
-    color: var.use($color);
+    width: vars.use($width);
+    height: vars.use($height);
+    color: vars.use($color);
 }
 
 // Converting many Sass variables at a time
 .demo-many {
-    @include var.create($width, $height, $color);
+    @include vars.create($width, $height, $color);
 
-    width: var.use($width);
-    height: var.use($height);
-    color: var.use($color);
+    width: vars.use($width);
+    height: vars.use($height);
+    color: vars.use($color);
 }
 ```
 
-compiles to:
+compiling too:
 
 ```css
 .demo {
@@ -78,15 +78,15 @@ compiles to:
 
 ## Custom fallback values
 
-If a custom property is undefined, the default [fallback](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties#custom_property_fallback_values) value for each CSS custom property will be the Sass variables, unless an optional second argument is passed to `var.use()` like this `var.use($var, $customFallback)`.
+If a custom property is undefined, the default [fallback](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties#custom_property_fallback_values) value for each CSS custom property will be the Sass variables, unless an optional second argument is passed to `vars.use()` like this `vars.use($var, $customFallback)`.
 
 ```scss
 .demo-many { 
-    @include var.create($width, $height, $color);
+    @include vars.create($width, $height, $color);
 
-    width: var.use($width, 40px);
-    height: var.use($height, 20px);
-    color: var.use($color, #111);
+    width: vars.use($width, 40px);
+    height: vars.use($height, 20px);
+    color: vars.use($color, #111);
 }
 ```
 compiling too:
@@ -105,8 +105,8 @@ compiling too:
 ## Usage options
 Two utilities are available:
 
-- `var.create()` - A sass mixin for converting a Sass variable to a CSS custom property. Accepts a single Sass variable as input or multiple comma separated Sass variables.
-- `var.use()` - A sass function for returning the custom property. Accepts two arguments: a single Sass variable, and an optional second argument for a custom fallback value.
+- `vars.create()` - A sass mixin for converting a Sass variable to a CSS custom property. Accepts a single Sass variable as input or multiple comma separated Sass variables.
+- `vars.use()` - A sass function for returning the custom property. Accepts two arguments: a single Sass variable, and an optional second argument for a custom fallback value.
 
 
 ## Contributing 
