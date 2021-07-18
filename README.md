@@ -102,6 +102,13 @@ compiles to:
 }
 ```
 
+## Usage options
+Two utilties are available:
+
+- `var.create()` - A sass mixin for converting a Sass variable to a CSS custom property. Accepts a single Sass variable as input or multiple comma separated Sass variables.
+- `var.use()` - A sass function for returning the custom property. Accepts two arguments: a single Sass variable, and an optional second argument for a custom fallback value.
+
+
 ## Contributing 
 I want this to be a helpful tool for the Sass community and anyone needing to convert Sass variables to CSS custom properties, so feel free to suggest any problems, features, or improvements in the [issue tracker](https://github.com/tannerdolby/sass-variable-converter/issues). 
 
