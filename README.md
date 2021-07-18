@@ -2,7 +2,7 @@
 A utility for converting Sass [variables](https://sass-lang.com/documentation/variables) to CSS [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ## Usage
-This utility is still in the beginning stages, it can accomplish converting a single Sass variable to a CSS custom property, or a multiple comma seperated Sass variables.
+Convert a single Sass variable to a CSS custom property, or provide multiple comma separated Sass variables as input to `var.create()` to generate mulitple custom properties at once.
 
 First define variables so we can pass the module namespace to where the mixin will be receiving a Sass variable to convert. This way, we always have access to `meta.module-variables(module)` when using the `var.create()` mixin and `var.use()` function.
 
