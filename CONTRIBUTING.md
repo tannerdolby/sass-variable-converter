@@ -1,4 +1,4 @@
-# Welcome! 🥑
+# Welcome!
 
 Thank you for wanting to contribute to `sass-variable-converter`. I welcome any and all feedback and feature requests. All that I ask is you be polite and respect other contributors. 
 
