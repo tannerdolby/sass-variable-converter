@@ -1,0 +1,28 @@
+{
+  "name": "sass-variable-converter",
+  "version": "1.0.0",
+  "description": "A tool for converting Sass variables to CSS custom properties.",
+  "main": "./sass",
+  "scripts": {
+    "build:sass": "sass ./sass:./css",
+    "watch:sass": "sass --watch ./sass:./css"
+  },
+  "keywords": [
+    "sass",
+    "converter",
+    "custom-properties",
+    "sass-variables"
+  ],
+  "author": {
+    "name": "Tanner Dolby",
+    "url": "https://tannerdolby.com",
+    "email": "tannercdolby@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/tannerdolby/sass-variable-converter/issues"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.35.2"
+  }
+}

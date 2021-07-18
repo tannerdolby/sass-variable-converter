@@ -1,0 +1,28 @@
+@use "sass:meta";
+@use "sass:list";
+@use "sass:map";
+@use "var";
+
+// variables are first defined in _custom-vars.scss
+$width: var.$width;
+$height: var.$height;
+$color: var.$color;
+
+// create custom properties from Sass variables (single conversion)
+.demo {
+    @include var.create($width);
+    @include var.create($height);
+    @include var.create($color);
+
+    width: var.use($width);
+    height: var.use($height);
+    color: var.use($color);
+}
+
+// Converting many Sass variables at a time
+.demo-many {
+    @include var.create($width, $height, $color);
+    width: var.use($width);
+    height: var.use($height);
+    color: var.use($color);
+}

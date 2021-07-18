@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@use "custom-vars";
+
+// Work in progress (Todo) Convert Sass Variable to CSS custom property
+// consume Sass variables within a specific module
+
+// instead of dealing with getting the module namespace
+// from the non private scss file where $vars are, which would be 
+// ideally used, we can use variables.$var in the non private scss
+// file to be compiled like $brand: variables.$brand; this isn't super
+// convenient but I can't seem to find a way to pass the module namespace
+// for the non private shape-library file that is getting compiled
+// other than passing the namespace where Sass variables are
+// to meta.module-variables("variables")
+
+@mixin create($vars...) {
+    $args: meta.module-variables("custom-vars"); // map
+    $keys: map.keys($args); // list
+    $values: map.values($args); // list
+    $argsLength: list.length($vars);
+
+    @if $argsLength == 1 and nth($vars, 1) != null {
+        // get the index of sass var value from values in module
+        // variables map, to get property name from $keys
+        $index: index($values, nth($vars, 1));
+        $prop: nth($keys, $index);
+        $value: nth($vars, 1); // or nth($values, $index)
+        @if $prop == null or $value == null {
+            @error("Invalid property or value. Cannot be null.");
+        }
+        --#{$prop}: #{$value};
+    } @else {
+        @each $prop, $value in $args {
+            @if $prop == null or $value == null {
+                @error("Invalid property or value. Cannot be null.");
+            }
+            --#{$prop}: #{$value};
+        }
+    }
+}
+
+// Use the CSS custom variable
+@function use($var, $fallback...) {
+    $args: meta.module-variables("custom-vars");
+    $keys: map.keys($args);
+    $values: map.values($args);
+    $index: index($values, $var);
+    $prop: nth($keys, $index);
+    $fallbackLength: list.length($fallback);
+
+    @if $args == null {
+        @error("No Sass variables in the given module.");
+    }
+
+    @if $fallbackLength == 1 {
+        @return var(--#{$prop}, #{nth($fallback, 1)});
+    } @else if $fallbackLength == 0 {
+        @return var(--#{$prop}, $var);
+        @error("Only one value permitted for custom property fallback.");
+    } @else {
+        @error("Only one value permitted for custom property fallback.");
+    }
+}

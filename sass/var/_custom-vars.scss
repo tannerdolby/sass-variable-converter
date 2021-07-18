@@ -1,0 +1,9 @@
+// This is not ideal having to define all of your
+// custom variables in a separate stylesheet, but for
+// now this is the only "clear path" for having `_vars.scss`
+// hold the create mixin and use function for converting a 
+// global Sass variable to a CSS custom property
+
+$width: 50px;
+$height: 25px;
+$color: #f06;

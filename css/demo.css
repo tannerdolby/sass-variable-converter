@@ -1,0 +1,19 @@
+.demo {
+  --width: 50px;
+  --height: 25px;
+  --color: #f06;
+  width: var(--width, 50px);
+  height: var(--height, 25px);
+  color: var(--color, #f06);
+}
+
+.demo-many {
+  --width: 50px;
+  --height: 25px;
+  --color: #f06;
+  width: var(--width, 50px);
+  height: var(--height, 25px);
+  color: var(--color, #f06);
+}
+
+/*# sourceMappingURL=demo.css.map */
