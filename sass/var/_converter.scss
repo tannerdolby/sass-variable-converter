@@ -2,7 +2,7 @@
 @use "sass:meta";
 @use "sass:map";
 @use "sass:list";
-@use "custom-vars";
+@use "variables";
 
 // Work in progress (Todo) Convert Sass Variable to CSS custom property
 // consume Sass variables within a specific module
@@ -17,7 +17,7 @@
 // to meta.module-variables("variables")
 
 @mixin create($vars...) {
-    $args: meta.module-variables("custom-vars"); // map
+    $args: meta.module-variables("variables"); // map
     $keys: map.keys($args); // list
     $values: map.values($args); // list
     $argsLength: list.length($vars);
@@ -44,7 +44,7 @@
 
 // Use the CSS custom variable
 @function use($var, $fallback...) {
-    $args: meta.module-variables("custom-vars");
+    $args: meta.module-variables("variables");
     $keys: map.keys($args);
     $values: map.values($args);
     $index: index($values, $var);
