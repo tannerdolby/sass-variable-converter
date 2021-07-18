@@ -56,7 +56,7 @@ $color: var.$color;
 
 compiles to:
 
-```scss
+```css
 .demo {
     --width: 50px;
     --height: 25px;
@@ -91,7 +91,7 @@ If a custom property is undefined, the default [fallback](https://developer.mozi
 ```
 compiles to:
 
-```scss
+```css
 .demo-many {
     --width: 50px;
     --height: 25px;
