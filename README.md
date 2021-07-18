@@ -22,7 +22,7 @@ then load the stylesheet:
 @forward "vars";
 ```
 
-now simply include the mixins/variables with `@use "var"` and utilize the `create` mixin and `use` function to convert Sass variables to custom properties:
+now simply include the mixins/variables with `@use "vars"` and utilize the `create` mixin and `use` function to convert Sass variables to custom properties:
 
 ```scss
 // demo.scss
@@ -33,7 +33,7 @@ $width: vars.$color;
 $height: vars.$length;
 $color: vars.$color; 
 
-// Converting a single Sass variable at a time
+/* Convert a single Sass variable */
 .demo-one {
     @include vars.create($width);
     @include vars.create($height);
@@ -44,7 +44,7 @@ $color: vars.$color;
     color: vars.use($color);
 }
 
-// Converting many Sass variables at a time
+/* Converting many Sass variables at once */
 .demo-many {
     @include vars.create($width, $height, $color);
 
