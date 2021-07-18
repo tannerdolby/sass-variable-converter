@@ -1,25 +1,26 @@
-@use "var";
+@use "vars";
 
 // variables are first defined in _custom-vars.scss
-$width: var.$width;
-$height: var.$height;
-$color: var.$color;
+$width: vars.$width;
+$height: vars.$height;
+$color: vars.$color;
 
-// create custom properties from Sass variables (single conversion)
+/* Converting a single Sass variable at a time */
 .demo {
-    @include var.create($width);
-    @include var.create($height);
-    @include var.create($color);
+    @include vars.create($width);
+    @include vars.create($height);
+    @include vars.create($color);
 
-    width: var.use($width);
-    height: var.use($height);
-    color: var.use($color);
+    width: vars.use($width);
+    height: vars.use($height);
+    color: vars.use($color);
 }
 
-// Converting many Sass variables at a time
+/* Converting many Sass variables at a time */
 .demo-many {
-    @include var.create($width, $height, $color);
-    width: var.use($width);
-    height: var.use($height);
-    color: var.use($color);
+    @include vars.create($width, $height, $color);
+    
+    width: vars.use($width);
+    height: vars.use($height);
+    color: vars.use($color, #222); /* custom fallback */
 }
