@@ -89,7 +89,7 @@ If a custom property is undefined, the default [fallback](https://developer.mozi
     color: var.use($color, #111);
 }
 ```
-compiles to:
+compiling too:
 
 ```css
 .demo-many {
@@ -103,7 +103,7 @@ compiles to:
 ```
 
 ## Usage options
-Two utilties are available:
+Two utilities are available:
 
 - `var.create()` - A sass mixin for converting a Sass variable to a CSS custom property. Accepts a single Sass variable as input or multiple comma separated Sass variables.
 - `var.use()` - A sass function for returning the custom property. Accepts two arguments: a single Sass variable, and an optional second argument for a custom fallback value.
