@@ -7,7 +7,7 @@ This utility is still in the beginning stages, it can accomplish converting a si
 First define variables so we can pass the module namespace to where the mixin will be receiving a Sass variable to convert. This way, we always have access to `meta.module-variables(module)` when using the `var.create()` mixin and `var.use()` function, which having the module variables map available is integral to handling the conversion process.
 
 ```scss
-// _vars.scss
+// var/_variables.scss
 
 $width: 50px;
 $height: 25px;
@@ -18,12 +18,15 @@ next,
 
 ```scss
 // var/_index.scss
+
 @forward "vars";
 ```
 
 then we can include the mixins/variables with `@use "var"` and utilize the `create` mixin and `use` function to convert Sass variables to custom properties:
 
 ```scss
+// demo.scss
+
 @use "var";
 
 $width: var.$color;
